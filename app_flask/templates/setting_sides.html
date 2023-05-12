@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <br> <br>
+    <h1> We need to have {{ number }} dices and already have these dices: </h1>
+    {% for dice in  all_dices %}
+    <p> Our {{ dice.name }} dice has {{ dice.sides}} sides. </p>
+    {% endfor %}
+
+    <h3> Please add one more: </h3>
+
+    <form method="post" action="{{ url_for('settings_sides', dices=number) }}">
+      {{ dice_sides.hidden_tag() }}
+      <div class="form-group">
+          {{ dice_sides.dice_sides.label(class="form-control-label") }}
+          {{ dice_sides.dice_sides(class="form-control") }}
+      </div>
+      {{ dice_sides.submit }}
+    </form>
+
+
+{% endblock %}

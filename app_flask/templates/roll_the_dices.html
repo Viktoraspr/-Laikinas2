@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <br> <br>
+    <h1> Please, role the dices: </h1>
+    <br>
+
+    <form method="post" action="{{ url_for('roll_the_dices') }}">
+        <button class="btn btn-primary" type="submit">Role the dices</button>
+    </form>
+
+    <br>
+    <br>
+    <p> Last {{ MAX_ROLLS_IN_MEMORY }} dices: </p>
+
+    {% for result in game.result %}
+        <p> {{result}} </p>
+    {% endfor %}
+
+{% endblock %}

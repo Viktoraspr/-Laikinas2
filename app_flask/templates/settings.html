@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <br> <br>
+    <h1> Choose the number of dices!!! </h1>
+
+      <form method="post" action="{{ url_for('settings') }}">
+          {{ dice_number.hidden_tag() }}
+          <div class="form-group">
+          {{ dice_number.dices_number.label(class="form-control-label") }}
+          {{ dice_number.dices_number(class="form-control") }}
+          </div>
+          {{ dice_number.submit }}
+      </form>
+
+
+
+{% endblock %}
